@@ -1,7 +1,9 @@
 // 回到顶部按钮逻辑
 window.addEventListener('load', function() {
-  var gtaUrl = "https://cdn.jsdelivr.net/gh/itboos/static-file-2020@master/js/gta20191212.min.js",
-      issoUrl = 'https://cdn.jsdelivr.net/gh/itboos/static-file-2020@master/js/embed.min.js?v=2'
+  var cdnPrefix = 'https://cdn.jsdelivr.net/gh/itboos/static-file-2020@master/'
+  var gtaUrl = cdnPrefix + "js/gta20191212.min.js",
+      issoUrl = cdnPrefix + 'js/embed.min.js?v=2'
+
   // Google Analytics
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
@@ -10,8 +12,9 @@ window.addEventListener('load', function() {
   
   appendScript(gtaUrl, null)
 
-  var isShowComment = /technology|life|other/.test(location.pathname)
-  // console.log('isShowComment:', isShowComment)
+  // var isShowComment = /technology|life|other/.test(location.pathname)
+  var isShowComment = false
+
   if (isShowComment) {
     appendScript(issoUrl, {
       'data-isso-lang': "zh_CN",
